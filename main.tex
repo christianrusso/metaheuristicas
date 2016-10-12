@@ -1,0 +1,99 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage{geometry}
+\usepackage[spanish, activeacute]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{xfrac}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}		% \includegraphics
+\usepackage{float}			% Para fijar figuras y tablas exactamente donde uno quiere.
+\usepackage{color}
+\usepackage{clrscode3e}		% Algoritmos tipo CLRS.
+\usepackage{caratula} 		% Utilitarios para armar la caratula.
+\usepackage{euler}			% Texto matematico estilo Concrete Mathematics
+\usepackage{url}            % Para hacer hipervínculos
+
+\usepackage{footnote}
+\makesavenoteenv{tabular}	% Para poner la footnote del capo del sorting.
+
+\setcounter{secnumdepth}{5}
+
+\renewcommand{\rmdefault}{pplx}	% Fuente estilo Concrete Mathematics.
+
+% Codigo fuente.
+\usepackage{listings}
+\lstset{
+	language=C++,
+	basicstyle=\small\sffamily,
+	numbers=left,
+	numberstyle=\tiny,
+	frame=tb,
+	columns=fullflexible,
+	showstringspaces=false
+}
+
+\newcommand\todo[1]{\Large\textbf{\textcolor{red}{#1}}\normalsize}
+
+
+\usepackage{chngcntr}	% Numeracion granular de distintos entornos.
+\counterwithin{table}{section}
+\AtBeginDocument{\counterwithin{lstlisting}{section}}
+
+
+% Tablas de archivos de test.
+\usepackage{verbatim}	% \verbatiminput
+\newcommand{\inoutsamplesfile}[3]{
+     %\vspace{1\baselineskip}
+     \begin{table}[H]
+     %\newcommand{\testdir}{tests}
+     \renewcommand{\tablename}{Test}
+     \caption{\texttt{#3}}
+     \begin{center}
+     \begin{tabular}{|l|l|} \hline
+          \textbf{Entrada} & \textbf{Salida} \\ \hline
+          \begin{minipage}[t]{0.45\textwidth} \verbatiminput{#1} \vspace{-2ex} \end{minipage} & \begin{minipage}[t]{0.45\textwidth} \verbatiminput{#2} \vspace{-2ex} \end{minipage} \\ \hline
+     \end{tabular}
+     \end{center}
+     \end{table}
+}
+
+
+\begin{document}
+
+\parskip=5pt
+
+\thispagestyle{empty}
+
+% Caratula.
+\def\Materia{Metaheuristicas}
+\def\Titulo{Trabajo Pr'actico 2}
+\def\Fecha{2 de septiembre de 2016}
+
+\begin{center}
+    {\LARGE\textbf{\Materia}}\\[1em]    
+    \vspace{5mm}
+    {\Large \textbf{\Titulo}}\\[1em]
+    \vspace{2mm}
+    {\textbf{\large \Fecha}}\\
+    \vspace{5mm}
+    \textbf{\tablaints}
+\end{center}
+
+\tableofcontents
+
+\newpage
+
+\pagestyle{headings}
+\setcounter{page}{1}
+
+%\input{ejemplos}
+\input{introduccion}
+\input{problema}
+\input{algoritmo}
+\input{experimentacion}
+\input{conclusion}
+
+\end{document}

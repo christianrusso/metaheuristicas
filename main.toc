@@ -1,0 +1,6 @@
+\select@language {spanish}
+\contentsline {section}{\numberline {1}Introduccion}{1}
+\contentsline {section}{\numberline {2}El problema}{1}
+\contentsline {section}{\numberline {3}Algoritmo}{1}
+\contentsline {section}{\numberline {4}Experimentacion}{1}
+\contentsline {section}{\numberline {5}Conclusion}{2}
