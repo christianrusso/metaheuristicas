@@ -1,6 +1,7 @@
 \select@language {spanish}
-\contentsline {section}{\numberline {1}Introduccion}{1}
-\contentsline {section}{\numberline {2}El problema}{1}
-\contentsline {section}{\numberline {3}Algoritmo}{1}
-\contentsline {section}{\numberline {4}Experimentacion}{1}
-\contentsline {section}{\numberline {5}Conclusion}{2}
+\contentsline {section}{\numberline {1}Introduccion Teorica}{1}
+\contentsline {subsection}{\numberline {1.1}Colonia de Hormigas}{1}
+\contentsline {section}{\numberline {2}El problema}{4}
+\contentsline {section}{\numberline {3}Algoritmo}{5}
+\contentsline {section}{\numberline {4}Experimentacion}{6}
+\contentsline {section}{\numberline {5}Conclusion}{7}
