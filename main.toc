@@ -2,6 +2,6 @@
 \contentsline {section}{\numberline {1}Introduccion Teorica}{1}
 \contentsline {subsection}{\numberline {1.1}Colonia de Hormigas}{1}
 \contentsline {section}{\numberline {2}El problema}{4}
-\contentsline {section}{\numberline {3}Algoritmo}{5}
-\contentsline {section}{\numberline {4}Experimentacion}{6}
-\contentsline {section}{\numberline {5}Conclusion}{7}
+\contentsline {section}{\numberline {3}Algoritmo}{6}
+\contentsline {section}{\numberline {4}Experimentacion}{7}
+\contentsline {section}{\numberline {5}Conclusion}{8}
