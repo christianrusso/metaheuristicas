@@ -1,5 +1,6 @@
 \newpage
-\section{Algoritmo}\label{sec:algoritmo}
+\section{Algoritmo Propuesto}\label{sec:algoritmo}
+\subsection{Explicacion}
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -7,3 +8,22 @@ quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+\subsection{Pseudocodigo}
+
+\begin{codebox}
+\Procname{$\proc{Insertion-Sort}(A)$}
+\li \For $j \gets 2$ \To $\attrib{A}{length}$
+\li \Do
+$\id{key} \gets A[j]$
+\li \Comment Insert $A[j]$ into the sorted sequence
+$A[1 \twodots j-1]$.
+\li $i \gets j-1$
+\li \While $i > 0$ and $A[i] > \id{key}$
+\li \Do
+$A[i+1] \gets A[i]$
+\li $i \gets i-1$
+\End
+\li $A[i+1] \gets \id{key}$
+\End
+\end{codebox}
