@@ -10,20 +10,139 @@ cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 \subsection{Pseudocodigo}
+\subsubsection{Algoritmo principal}
 
-\begin{codebox}
-\Procname{$\proc{Insertion-Sort}(A)$}
-\li \For $j \gets 2$ \To $\attrib{A}{length}$
-\li \Do
-$\id{key} \gets A[j]$
-\li \Comment Insert $A[j]$ into the sorted sequence
-$A[1 \twodots j-1]$.
-\li $i \gets j-1$
-\li \While $i > 0$ and $A[i] > \id{key}$
-\li \Do
-$A[i+1] \gets A[i]$
-\li $i \gets i-1$
-\End
-\li $A[i+1] \gets \id{key}$
-\End
-\end{codebox}
+\begin{verbatim}
+    resolver() {
+        inicializarFeromonas();
+        ejecutarIteracionInicial();
+        return ejecutarProximasSoluciones();
+    }
+\end{verbatim}
+
+\textbf{InicializarFeromonas()} es una funcion que inicializa la feromona como una matriz del tamanio de la region, en caso que la region no se rectangular la inicializa con el rectangulo mas chico que contenga a la region. 
+
+Tambien inicializa una matriz disponibilidad del mismo tamanio que la feromona pero esta contiene 1 o 0 diciendonos si una feromona es validad o no, sea porque ya esta usada o porque la region es mas chica que la matriz de feromonas y en esa feromona no tenemos region.
+
+
+\begin{verbatim}
+    ejecutarIteracionInicial() {
+        soluciones = crearSolucionesRandom();
+        for (Solucion solucion : soluciones) {
+            if(esBuenaSolucion()){
+                actualizarFeromona(solucion, OperacionFeromona.Calentar);
+            } else {
+                actualizarFeromona(solucion, OperacionFeromona.Enfriar);
+            }
+        }
+    }
+\end{verbatim}		
+
+\textbf{ejecutarIteracionInicial()} crea una cantidad seteada por parametro de soluciones randoms y para solucion chequea si es una buena o mala solucion, la funcion \textbf{esBuenaSolucion()} cambia segun un valor pasado por parametro, pero en definitiva, devuelve \textbf{true} si es una solucion considerada buena o \textbf{false} si es considerada mala. 
+
+En caso de que la solucion sea buena, \textbf{calentamos} la matriz de feromonas y \textbf{enfriamos} en caso contrario.
+
+La funcion \textbf{actualizarFeromona()} simplemente recorre la matriz \textbf{calentando} o \textbf{enfriendo} cada valor respectivamente. Pero notar que la calienta \textbf{teniendo en cuenta el valor del ogip en ese punto}, es decir, se normaliza el ogip y en cada punto de feromona se calienta o enfria un valor igual a $escalar * feromonaNormalizadaEnElPunto$. Esto es para que el algoritmo de colonias de hormigas tenga en cuenta los valores originales del problema para generar sus soluciones.
+
+
+La funcion \textbf{esBuenaSolucion()}, tiene 3 opciones que se cambian dependiendo de un valor pasado por parametro
+
+\begin{enumerate}
+\item Opcion 0: Una solucion es buena si el ogip cubierto por esta solucion es mas que el 75\% del total del ogip, en otro caso es una mala solucion.
+\item Opcion 1: Una solucion es buena si el ogip cubierto por esta solucion es mas que la mitad de la suma del maximo y minimo ogip hasta el momento, en otro caso es mala solucion.
+\item Opcion 2: Una solucion es buena si el ogip cubierto por esta solucon es mas que el promedio de los ogip de las soluciones calculadas hasta el momento, en otro caso es mala solucion. 
+\end{enumerate}
+
+
+
+\begin{verbatim}	
+crearSolucionesRandom() {
+    ret = new Solucion()
+    while (hasta que el area deje de cambiar) {
+        Coordenada c = generarCoordenadaRandom()
+        Pad pad = crearPadConSemillaRandamCentradaEnCoordenada(c)
+        if (padValido(pad)){
+            Pad padAcomodado = acomodarPad(pad);
+            agregarPadASolucion(ret,padAcomodado);
+        }
+    }
+    return ret;
+}
+\end{verbatim}	
+
+La condicion del while corta cuando ya no se pueden meter mas pads en mi solucion random, esto se hace teniendo en cuenta una cantidad fijada por parametro de intentos de meter un pad, es decir, intento meter pads en la solucion y si la cantidad de veces que no pude meter es mayor al parametro seteado, se asume que no entran mas pads y sale del while. 
+
+Esto se hace para tratar de manejar la region en un plano \textbf{continuo} y para tratar de solucionar el problema de saber cuando ya no entran mas pads.
+
+\textbf{GenerarCoordenadaRandom()} generada un x,y random dentro de la region. 
+
+\textbf{crearPadConSemillaRandamCentradaEnCoordenada(c)()} elije una semilla random y crea un pad centrado en c
+
+\textbf{padValido(pad)} chequea si el pad no se pisa con ninguna restrincion, ni se va fuera de la region, ni se pisa con otro pad ya agregado a la solucion.
+
+\textbf{acomodarPad(pad)} mueve el pad para una direccion random hasta chocarce son un borde u otro pad sin destapar el centro. Eso se hace para tratar de pegar todos los pads en la solucion.
+
+\textbf{agregarPadASolucion()} agrega el pad a la solucion.
+
+\textbf{ejecutarProximasSoluciones()} ejecuta una cantidad de veces igual a \textbf{cantIteraciones}, un algoritmo similar a \textbf{crearSolucionesRandom()}, llamado \textbf{generarSolucionesMaximaTemperatura()}. De esta forma se crean soluciones durante muchas iteraciones.
+
+\textbf{generarSolucionesMaximaTemperatura()} es exactamente igual a \textbf{crearSolucionesRandom()} nada mas que cambiando el metodo \textbf{crearSolucionesRandom()} por \textbf{generarSolucionesMaximaFeromona()}. Esto significa que crea una cantidad configurable de soluciones de maxima feromona. Y para cada solucion chequea si es buena o mala actualizando la feromona como corresponda al igual que lo haciamos en la iteracion inicial.
+
+Una solucion de maxima feromona es una solucion que tiene en cuenta el valor de la fermona para generarse y se genera con el siguiente algoritmo:
+
+
+\begin{verbatim}
+construirSolucionMaximaTemperatura() {
+    sol = new Solucion();
+    while (mientra que tenga feromonas disponibles) {
+        Feromona p = getMaximaFeromona()
+        if (es una feromona que se puede tapar) {
+            for (int j = 0; j < getCantIntentosTaparFeromona(); j++) {
+                nuevoPad = generarNuevoPad(p);
+                if (esPadValido(nuevoPad)) {
+                    nuevoPad = acomodarPad(nuevoPad);
+                    agregarPadASolucion(nuevoPad);
+                    break;
+                }
+            }
+        }
+    }
+    return sol;
+}
+\end{verbatim}
+
+Mientras tenga feromonas disponible, es decir que todavia no las tapas (y estan dentro de la region) ejecuto todo el codigo dentro del while. 
+
+Obtengo la maxima feromona con \textbf{getMaximaFeromona()} y chequeo si es una posible feromona a tapar, dado que podria pasar que esa feromona este en una restrincion. 
+Una vez que ya se que esa feromona la puedo tapar, trato de generar \textbf{getCantIntentosTaparFeromona()} pads (este valor es seteado por parametro). 
+
+La idea general es que para cada iteracion genero un pad random que tape a la feromona, chequeo si es valido, y si es valido lo agrego a la solucion y dejo de intentar tapar esta feromona.
+
+Si no encontre ningun pad que sea valido y tape a la feromona en \textbf{getCantIntentosTaparFeromona()} intentos entonces ya esa feromona la descarto. 
+
+\textbf{Notar que a los pads los acomodo (al igual que antes) para que queden pegados a otros pads o al borde.}
+
+\textbf{Nota importante:} Tanto en la generacion de soluciones random o las soluciones de maxima feromona, a la hora de fijarse si es una buena o mala solucion para actualizar la feromona, se chequea si es la \textbf{mejor solucion}, en caso de ser la mejor se \textbf{guarda}. Esto es para guardar la mejor solucion en el camino, podria llegar a pasar que la mejor solucion la encuentre en iteraciones iniciales y las siguientes sean peores.
+
+
+\subsubsection{Alternativa: Muchas Feromonas}
+A parte de tener un algoritmo de colonias de hormigas que ejecuta con una unica feromona, se programo una version alternativa donde contamos con mas de una feromona. Es decir para cada solucion, en lugar de tener una unica feromona, \textbf{tenemos una matriz de feromona para cada semilla}.
+ 
+Para esto se modifica leventente el codigo teniendo en cuenta que ahora manejamos arrays de feromonas, y cambian levemente los algoritmos de actualizar la feromona. En particular, el algoritmo para obtener cual es la maxima feromona es el siguiente:
+
+
+\begin{verbatim}
+getMaximaFeromona() {
+    result = null;
+    for (f in todas las feromonas) {
+        if(si la feromona f tiene valores dissponibles)
+            if(maximo de f > result)
+                result = f1;
+    }
+    return result;
+}
+\end{verbatim}
+
+El algoritmo es bastante sencillo, la idea es recorrer todas las feromonas buscando el maximo valor. 
+
+Tener en cuenta que a la hora de actualizar la feromona, cada feromona solo se actualiza donde corresponde. Por ejemplo,  la feromona correspondiente a la semilla 0 se calienta o enfria solo en los puntos donde la solucion puso semillas 0. 
