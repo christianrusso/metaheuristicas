@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (MiKTeX 2.9) (preloaded format=xelatex 2016.10.6)  28 OCT 2016 10:44
+This is XeTeX, Version 3.14159265-2.6-0.99996 (MiKTeX 2.9) (preloaded format=xelatex 2016.10.6)  31 OCT 2016 09:41
 entering extended mode
 **./main.tex
 (main.tex
@@ -741,7 +741,14 @@ LaTeX Font Info:    Try loading font information for U+euex on input line 92.
 File: ueuex.fd 2013/01/14 v3.01 Euler extra symbols
 )
 Missing character: There is no Í in font pplb9t!
- (main.toc)
+ (main.toc
+LaTeX Info: Redefining \. on input line 1.
+LaTeX Info: Redefining \% on input line 1.
+Missing character: There is no ó in font pplb9t!
+Missing character: There is no ó in font pplb9t!
+Missing character: There is no ó in font pplb9t!
+Missing character: There is no ó in font pplb9t!
+)
 \tf@toc=\write3
 \openout3 = `main.toc'.
 
@@ -877,13 +884,13 @@ LaTeX Info: Redefining \% on input line 43.
 LaTeX Info: Redefining \. on input line 77.
 LaTeX Info: Redefining \% on input line 77.
  [9]
-Overfull \hbox (2.84464pt too wide) in paragraph at lines 77--78
+Overfull \hbox (2.84464pt too wide) in paragraph at lines 79--80
 []\OT1/pplx/b/n/10.95 crearPadConSemillaRandamCentradaEnCoordenada(c)() \OT1/pplx/m/n/10.95 eli-je una se-mi-lla ran-dom
 
  []
 
-LaTeX Info: Redefining \. on input line 113.
-LaTeX Info: Redefining \% on input line 113.
+LaTeX Info: Redefining \. on input line 115.
+LaTeX Info: Redefining \% on input line 115.
 [10]) (experimentacion.tex
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
@@ -892,34 +899,38 @@ LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
  [12]
 Missing character: There is no ó in font pplb9t!
-) (conclusion.tex
+) (resolucion-alternativa.tex
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
 Missing character: There is no Ó in font pplri9t!
- [13]
+ [13]) (prog-lineal-entera.tex
+LaTeX Info: Redefining \. on input line 1.
+LaTeX Info: Redefining \% on input line 1.
+ [14]) (conclusion.tex
+LaTeX Info: Redefining \. on input line 1.
+LaTeX Info: Redefining \% on input line 1.
+
+[15]
 Missing character: There is no ó in font pplb9t!
 )
-LaTeX Info: Redefining \. on input line 109.
-LaTeX Info: Redefining \% on input line 109.
+LaTeX Info: Redefining \. on input line 111.
+LaTeX Info: Redefining \% on input line 111.
 Missing character: There is no Ó in font pplri9t!
- [14] (main.aux
+ [16] (main.aux
 LaTeX Info: Redefining \. on input line 7.
 LaTeX Info: Redefining \% on input line 7.
 )
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
- 12395 strings out of 428408
- 217811 string characters out of 3159514
+ 12401 strings out of 428408
+ 217939 string characters out of 3159514
  283591 words of memory out of 3000000
  15643 multiletter control sequences out of 15000+200000
  16220 words of font info for 54 fonts, out of 3000000 for 9000
  1328 hyphenation exceptions out of 8191
  34i,7n,58p,10378b,398s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on main.pdf (15 pages).
+Output written on main.pdf (17 pages).
