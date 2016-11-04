@@ -4,52 +4,66 @@
 
 \subsubsection{Colonia de hormigas}
 
-El algoritmo implementado esta basado en la metaheuristica de colonia de hormigas. La idea general es tener una matriz que representa a la feromona, esta matriz reprensenta la region de entrada, que en un principio esta con todos los valores en 0. 
+El algoritmo implementado esta basado en la metaheuristica de \textbf{colonia de hormigas}.
 
+La idea general es tener una matriz que representa a la \textbf{feromona}, esta matriz reprensenta la region de entrada, en otras palabras el valor en la posicion (x,y) de la matriz de feromona representa el valor de la feromona en dicha posicion del suelo. En un principio se inicaliza con todos los valores en 0, como se ve a continuacion:
 
-(Ejemplo feromona todo en cero)
-
-La matriz de fermona esta discretizada con un valor configurable por parametro. Por ejemplo, si la region es una region de 100x100, pero la discretizacion de la feromona la seteamos en 10, vamos a tener una matriz de feromona de 10x10. Es clave notar en este punto que cuanto menor es el valor de la discretizacion de la feromona mayor cantidad de puntos en la matriz y por lo tanto vamos a lograr mejores resultados pero a su vez resultados con tiempo computacional mas alto (ver seccion de experiemntacion).
-
-Por otro lado, contamos con una estructura auxiliar, una matriz de tamaños iguales que la matriz de feromona, esta estructura contiene 0 y 1 dependiendo de la disponibilidad del punto de la feromona. Esto es utilizado para saber cuando un punto feromona esta disponible dado que los vamos a ir tapando con el correr de las iteraciones y por otro lado, en casos de que la region original no sea rectangular, la matriz de feromona se arma de forma tal que la region quede incluida y los espacios fuera de la region se setean como "no disponibles" en esta nueva estructura. En la siguiente figura vemos un ejemplo donde la seccion amarrilla seria la region, y la azul seria la matriz de feromona, por lo tanto en la matriz de disponibilidad en los casilleros correspondientes a partes azules tendriamos un 1 indicando que no esta disponible esa feromona, ya que no esta dentro de la region.
-
-\begin{figure}[h]
-\caption{Ejemplo matriz de feromona y matriz de disponibilidad}
-\centering
-\includegraphics[width=5cm]{imagenes/ejemplo1}
-\end{figure}
-
-
-Lo siguiente es, ejecutar una cantidad configurable de iteraciones el algoritmo obteniendo en cada solucion, un conjunto de soluciones que van actualizando la matriz de feromona y en cada paso del algortimo vamos chequeando y guardandonos la mejor solucion, siendo la mejor solucion la que tenga el valor mas alto del ogip tapado.
-
-(2 dibujos de feromonas actualizadas)
-
-El algoritmo esta dividido en dos partes, la iteracion inicial y el resto de las iteraciones (decision tomado para facilitar la implementacion). A continuacion se explica el trabajo de cada hormiga, es decir la forma de conseguir cada solucion dependiendo si es la iteracion inicial o el resto de las iteraciones.
-
-Iteracion Inicial: En esta iteracion se crean una cantidad configurable de soluciones random, y para cada una de estas se actualiza la matriz de feromonas de la forma que corresponda. 
-
-Para crear una solucion random, la idea principal es meter pads centrados en puntos random de la region, teniendo en cuenta que sean validos (que esten dentro de la region, sin pisarse y sin interceptarce con una restrincion) hasta no poder meter mas pads. Notar que tambien se elije la semilla de forma random. El problema en este caso es decidir cuando ya no se pueder meter pads (dado que estamos trabajando en un plano continuo), por lo tanto se considero tener un valor configurable de intentos de meter pad fallidos. En caso de fallar en insertar el pad random esa cantidad de veces entonces se considera que no entra ningun pad mas y se retorna la solucion. 
-
-A continuacion podemos ver un ejemplo de una solucion random, donde termino de poner pads porque se "creyo" que no entraban mas, pero podemos ver en la otra figura, marcado con amarrillo 3 posibles pads que se nota que no se encontraron.
 
 \begin{center}
-\begin{figure}[h]
-\caption{Ejemplo solucion random obtenida}
-\includegraphics[width=5cm]{imagenes/ejemplo2}
-\includegraphics[width=5cm]{imagenes/ejemplo3}
-\end{figure}
+\includegraphics[width=7cm]{imagenes/feromona0}
+\includegraphics[width=7cm]{imagenes/feromona01}
+\end{center}
+
+La matriz de fermona esta \textbf{discretizada} con un valor \textbf{configurable por parametro}. Por ejemplo, si la region es una region de 100x100 metros, pero la discretizacion de la feromona la seteamos en 10 metros, vamos a tener una matriz de feromona de 10x10. Es clave notar en este punto que cuanto menor es el valor de la discretizacion de la feromona mayor cantidad de puntos en la matriz y por lo tanto vamos a lograr mejores resultados pero a su vez resultados con tiempo computacional mas alto (ver seccion de experiemntacion).
+
+Por otro lado, contamos con una estructura auxiliar, una matriz de tamaños iguales que la matriz de feromona, esta estructura contiene 0 y 1 dependiendo de la \textbf{disponibilidad} del punto de la feromona. Esto es utilizado para saber cuando una feromona esta disponible, dado que los vamos a ir tapando con el correr de las iteraciones y por otro lado, en casos de que la region original no sea rectangular o este rotada, la matriz de feromona se arma de forma tal que la region quede incluida y los espacios fuera de la region se setean como \textbf{no disponibles} en esta nueva estructura. En la siguiente figura vemos un ejemplo donde la seccion amarrilla seria la region, y la azul seria la matriz de feromona, por lo tanto en la matriz de disponibilidad en los casilleros correspondientes a partes azules tendriamos un 1 indicando que no esta disponible esa feromona, ya que no esta dentro de la region.
+
+\begin{center}
+\includegraphics[width=8cm]{imagenes/ejemplo1}
+\end{center}
+
+
+Lo siguiente es, ejecutar una cantidad configurable de iteraciones el algoritmo obteniendo en cada solucion, un conjunto de soluciones que van \textbf{actualizando} la matriz de feromona y en cada paso del algortimo vamos \textbf{chequeando y guardandonos la mejor solucion}, siendo la mejor solucion la que tenga el valor mas alto del ogip tapado. 
+
+En las siguientes imagenes podemos ver algunos ejemplos de feromonas luego de varias iteraciones.
+
+\begin{center}
+
+\includegraphics[width=7cm]{imagenes/fero0}
+\includegraphics[width=7cm]{imagenes/fero1}
+\end{center}
+
+
+El algoritmo esta dividido en dos partes, la \textbf{iteracion inicial} y el \textbf{resto de las iteraciones} (decision tomado para facilitar la implementacion). 
+
+A continuacion se explica el trabajo de cada hormiga, es decir la forma de conseguir cada solucion dependiendo si es la iteracion inicial o el resto de las iteraciones.
+
+\textbf{Iteracion Inicial:} En esta iteracion se crean una \textbf{cantidad configurable} de soluciones random, y para cada una de estas se actualiza la matriz de feromonas de la forma que corresponda. 
+
+Para crear una solucion random, la idea principal es meter pads centrados en puntos random de la region, teniendo en cuenta que sean validos (que esten dentro de la region, sin pisarse y sin interceptarce con una restrincion) hasta no poder meter mas pads. Notar que tambien se elije la semilla de forma random. El problema en este caso es decidir cuando ya no se pueder meter pads (dado que estamos trabajando en un plano \textbf{continuo}), por lo tanto se considero tener un \textbf{valor configurable} de intentos de meter pad fallidos. En caso de fallar en insertar el pad random esa cantidad de veces entonces se considera que no entra ningun pad mas y se retorna la solucion. 
+
+A continuacion podemos ver un ejemplo de una solucion random, donde termino de poner pads porque se \textbf{creyo} que no entraban mas, pero podemos ver en la otra figura, marcado con amarrillo 3 posibles pads que se nota que no se encontraron.
+
+\begin{center}
+\includegraphics[width=7cm]{imagenes/ejemplo2}
+\includegraphics[width=7cm]{imagenes/ejemplo3}
 \end{center}
 
 
 
 
-Resto de las iteraciones: En esta iteracion se crean una cantidad configurable de soluciones no random, y para cada una de estas se actualiza la matriz de feromonas de la forma que corresponda.
+\textbf{Resto de las iteraciones:} En esta iteracion se crean una \textbf{cantidad configurable} de soluciones no random, y para cada una de estas se actualiza la matriz de feromonas de la forma que corresponda.
 
-Para crear una solucion no random, la idea principal es agarrar el punto de la feromona mas caliente y generar una cantidad configurable de pads random que puedan tapar esa feromona. Nota: si no consigo ningun pad random que tape dicho punto de la feromona (dado que los pads pueden ser invalidos, por ejemplo tocando una restriccion) , descarto ese punto de la feromona. 
-La manera de conseguir un pad random que tape un punto c, es tan simple como un pad posicionado en cualquier lugar de la region que tape a c. Esto esta hecho de esta forma para que cada solucion sea distinta de las otras.
+Para crear una \textbf{solucion no random}, la idea principal es agarrar el punto de la feromona mas \textbf{caliente} y generar una \textbf{cantidad configurable} de pads random que puedan tapar esa feromona. 
+
+Nota: si no consigo ningun pad random que tape dicho punto de la feromona (dado que los pads pueden ser invalidos, por ejemplo tocando una restriccion) , descarto ese punto de la feromona. 
+
+
+La manera de conseguir un pad random que tape un punto c, es tan simple como un pad posicionado en cualquier lugar de la region que tape a c. \textbf{Esto esta hecho de esta forma para que cada solucion sea distinta de las otras.}
+
 Una vez tapado el punto de la feromona, se acomoda el pad, se tapan el resto de los puntos de la feromona que este pad tapo (tambien actualizamos la matriz de disponibilidad) y se itera hasta no tener mas puntos feromona para tapar. 
 
-Actualizacion de la feromona: Para actualizar la feromona utilizamos una funcion "esBuenaSolucion" que determina si una solucion es buena o mala. Contamos con un parametro configurable dado que se tiene 3 formas distintas de ver si una solucion es buena o mala
+\textbf{Actualizacion de la feromona:} Para actualizar la feromona utilizamos una funcion llamada \textbf{esBuenaSolucion} que determina si una solucion es buena o mala. Contamos con un \textbf{parametro configurable} dado que se tiene 3 formas distintas de ver si una solucion es buena o mala
 
 \begin{enumerate}
 \item Opcion 0: Una solucion es buena si el ogip cubierto por esta solucion es mas que el 75\% del total del ogip, en otro caso es una mala solucion.
@@ -60,13 +74,15 @@ Actualizacion de la feromona: Para actualizar la feromona utilizamos una funcion
 En caso de que la solucion sea buena se recorre la matriz de feromonas, aumentanto (calentando) en cada casillero (punto de la feromona) tapado por un pad en dicha solucion un valor igual al ogip en ese punto (normalizado) por una constante configurada por parametro. Es analogo para el caso de una solucion mala, solamente que disminuyendo (enfriando).
 
 
-Importante: Tener en cuenta que para todos los casos, una vez elegido el pad que voy a agregar a mi solucion, a este pad lo acomodo haciendo que se mueva para la direccion mas cercana a otro pad o borde, hasta chocarce con el. De esta forma obtengo soluciones con pad pegados entre si y no aparecen huecos.
+\textbf{Importante:} Tener en cuenta que para todos los casos, una vez elegido el pad que voy a agregar a mi solucion, a este pad lo \textbf{acomodo} haciendo que se mueva para la direccion mas cercana a otro pad o borde, hasta chocarce con el. De esta forma obtengo soluciones con pad pegados entre si y no aparecen huecos.
 
 Una vez terminadas todas las iteraciones vamos a tener guardado la mejor solucion, el numero de iteracion de donde salio dicha solucion y el tiempo en conseguirla.
 
+Notar que la mejor solucion no necesariamente es de la ultima iteracion, es por eso que la vamos guardando en cada iteracion y tambien vamos guardando el numero y tiempo de la iteracion de donde se origino la mejor solucion.
+
 \subsubsection{Colonia de hormigas Version Alternativa}
 
-Tambien se desarrollo un algoritmo extra, tambien basado en colonias de hormigas, implementado de forma casi identica al anterior, salvo que en lugar de tener una unica matriz de feromonas, tenemos una matriz de feromonas por cada semilla, es decir si tengo 5 semillas (tipo de pad) tengo 5 matrices de fermona y una unica matriz de disponibilidad. 
+Tambien se desarrollo un algoritmo extra, tambien basado en \textbf{colonias de hormigas}, implementado de forma casi identica al anterior, salvo que en lugar de tener una unica matriz de feromonas, tenemos una matriz de feromonas por cada semilla, es decir si tengo 5 semillas (tipo de pad) tengo 5 matrices de fermona y una unica matriz de disponibilidad. 
 
 Entonces a la hora de actualizar la matriz de feromona, actualizamos para cada matriz los puntos tapados por los pads que tienen esa semilla. Por ejemplo, si tenemos 2 semillas, una grande y una chica, en una matriz de feromona vamos a actualizar los puntos tapados por los pads chicos y en la otra matriz de feromona actualizamos los puntos tapados por pads grandes. 
 
@@ -74,20 +90,26 @@ A la hora de buscar la feromona mas caliente, se busca entre todas las matrices 
 
 El objetivo de esto es notar la variacion de la feromona, y tratar de ver que en algunos casos es conveniente poner los pads mas grandes en los puntos mas calientes mientras que los lugares restantes, por ejemplo a los costados de los lugares de alto valor, se agregan pads mas chicos. 
 
-(agregar algunos ejemplos de muchas feromonas)
+A continuacion se muestran ejemplos de feromonas para esta version alternativa. Podemos ver en la figura de la izquierda como se modifico la feromona en los lugares donde tiene los pads mas grandes. Por otro lado, la feromona de la derecha se nota como esta modificada en los lugares que rodean a los pads mas grandes, concluyendo que se pusieron pads mas chicos en los alrededores de los mas grandes (ver seccion experiementacion)
+
+\begin{center}
+
+\includegraphics[width=7cm]{imagenes/ferov20}
+\includegraphics[width=7cm]{imagenes/ferov21}
+\end{center}
 
 A continuacion podemos ver algunos ejemplos de soluciones obtenidas sobre una misma instancia cambiando los parametros (ver mas en seccion experimentacion).
 
 \begin{center}
 
-\includegraphics[width=5cm]{imagenes/ejemplo7}
-\includegraphics[width=5cm]{imagenes/ejemplo5}
+\includegraphics[width=7cm]{imagenes/ejemplo7}
+\includegraphics[width=7cm]{imagenes/ejemplo5}
 \end{center}
 
 
 \begin{center}
-\includegraphics[width=5cm]{imagenes/ejemplo6}
-\includegraphics[width=5cm]{imagenes/ejemplo4}
+\includegraphics[width=7cm]{imagenes/ejemplo6}
+\includegraphics[width=7cm]{imagenes/ejemplo4}
 
 \end{center}
 

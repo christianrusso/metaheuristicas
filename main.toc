@@ -1,0 +1,15 @@
+\select@language {spanish}
+\contentsline {section}{\numberline {1}Introducción Teórica}{1}
+\contentsline {subsection}{\numberline {1.1}Colonia de Hormigas}{1}
+\contentsline {section}{\numberline {2}El problema}{4}
+\contentsline {section}{\numberline {3}Algoritmo Propuesto}{8}
+\contentsline {subsection}{\numberline {3.1}Explicacion}{8}
+\contentsline {subsubsection}{\numberline {3.1.1}Colonia de hormigas}{8}
+\contentsline {subsubsection}{\numberline {3.1.2}Colonia de hormigas Version Alternativa}{11}
+\contentsline {subsection}{\numberline {3.2}Pseudocodigo}{14}
+\contentsline {subsubsection}{\numberline {3.2.1}Algoritmo principal}{14}
+\contentsline {subsubsection}{\numberline {3.2.2}Alternativa: Muchas Feromonas}{17}
+\contentsline {section}{\numberline {4}Experimentación}{18}
+\contentsline {section}{\numberline {5}Resolucion alternativa}{19}
+\contentsline {section}{\numberline {6}Programacion lineal entera}{20}
+\contentsline {section}{\numberline {7}Conclusión}{22}
