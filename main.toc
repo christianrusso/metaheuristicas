@@ -12,4 +12,4 @@
 \contentsline {section}{\numberline {4}Experimentación}{18}
 \contentsline {section}{\numberline {5}Resolucion alternativa}{19}
 \contentsline {section}{\numberline {6}Programacion lineal entera}{20}
-\contentsline {section}{\numberline {7}Conclusión}{22}
+\contentsline {section}{\numberline {7}Conclusión}{23}
