@@ -1,9 +1,12 @@
 \newpage
 \section{Experimentación}\label{sec:experimentacion}
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+En esta seccion se presentaran los resultados de la experimentacion realizada. Pero previamente es necesario conocer los algoritmos con los cuales se comparo nuestra metaheuristca.
+
+\begin{enumerate}
+\item Scip: Este algoritmo esta realizado con programacion lineal entera y se explica en detalle en la seccion \textbf{Programacion Lineal Entera}.
+\item Goloso: Este algoritmo es un simple Goloso, es decir, en cada iteracion agrega a la solucion en pad que mas ogip tape.
+\item Goloso Maximos Locales: Este algoritmo, en cada iteracion busca el pad de mayor ogip (al igual que el goloso), pero como esto esta ligado a la discretizacion, a este pad se lo mueve tratando de ubicarlo en algun lugar cercano donde tenga mayor ogip, es decir, no importa al 100\% la discretizacion, dado que se consigue un pad centrado en la discretizacion (este pad es el pad con mayor ogip de todos los pads centrados en la discretizacion) y luego busco un maximo local en los alrededores y una vez encontrado lo agrega a la solucion.
+Para esto se utiliza un parametro \textbf{Paso Movimiento Pad} que indica el paso que se tiene en cuenta a la hora de mover el pad buscando el maximo local. 
+Una vez que no tengo mas pads disponibles puede haber pasado que al mover los pads, no tenga mas pads disponibles de los centrados en la discretizacion, pero si existen huecos donde entran otros, por lo tanto, se \textbf{re-discretiza} el area no tapada hasta el momento, se hace una discretizacion mas fina, y para esto se usa el parametro \textbf{Paso mejora Discretizacion} que indica en cuanto se achica la discretizacion. Luego se vuelve a calcular los posibles pads para esta nueva discretizacion. Notar que solo se discretiza mas fino los sectores no tapados por los pads provenientes de la discretizacion mas gruesa.
+\end{enumerate}
