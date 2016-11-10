@@ -23,4 +23,27 @@ Los parametros usados para estos algoritmos son:
 \item PMP: \textbf{Paso Movimiento Pad}, en el algoritmo GML se utiliza para el paso en que se mueven los Pads, a la hora de buscar el maximo local, leer la explicacion en la seccion \textbf{experimentacion}
 \end{enumerate}
 
+Por otro lado, para el algoritmo de colonia de hormgias se utilizaron los siguientes parametros:
+							
+\begin{enumerate}
+\item IMPSR: \textbf{Intentos Meter Pad Solucion Random}, para ver cuando se termina de intentar meter pad en las soluciones tipo random (recordar que trabajamos en el continuo, y tenemos que decididr cuando ya creemos que se lleno la region).
+\item CITF:  \textbf{Cantidad Intentos de Tapar una Feromona}, cantidad de pads que tapan a una feromona, para cada uno pruebo si es valido. Si ninguno es, se descarta esa feromona.
+\item CSRI: \textbf{Cantidad Soluciones Random Iniciales}, cantidad de soluciones de la primera iteracion. (Soluciones random)
+\item CI: \textbf{Cantidad Iteraciones}, cantidad iteraciones luego de la inicial.
+\item CSNRPI: \textbf{Cantidad Soluciones No Random Por Iteracion}, cantidad de soluciones por iteracion (Luego de la inicial).
+\item MCBS: \textbf{Modo Chequeo Buena Solucion}, el modo para chequear cuando una solucion es buena o mala (para enfriar o calentar la feromona, explicado mejor en la seccion \textbf{Algoritmo Propuesto}).
+\item DF: \textbf{Discretizacion Feromona}, la discretizacion de la matrix de feromonas.
+\item FCF: \textbf{Factor Cambio Feromona}, factor que se multiplica al actualizar la feromona (tambien se lo multiplica por el ogip normalizado)
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
 
