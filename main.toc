@@ -1,5 +1,5 @@
 \select@language {spanish}
-\contentsline {section}{\numberline {1}Introducción Teórica}{1}
+\contentsline {section}{\numberline {1}Introducci\IeC {\'o}n Te\IeC {\'o}rica}{1}
 \contentsline {subsection}{\numberline {1.1}Colonia de Hormigas}{1}
 \contentsline {section}{\numberline {2}El problema}{4}
 \contentsline {section}{\numberline {3}Algoritmo Propuesto}{8}
@@ -10,7 +10,7 @@
 \contentsline {subsubsection}{\numberline {3.2.1}Algoritmo principal}{14}
 \contentsline {subsubsection}{\numberline {3.2.2}Alternativa: Muchas Feromonas}{17}
 \contentsline {section}{\numberline {4}Parametros}{18}
-\contentsline {section}{\numberline {5}Experimentación}{20}
+\contentsline {section}{\numberline {5}Experimentaci\IeC {\'o}n}{20}
 \contentsline {section}{\numberline {6}Resolucion alternativa}{25}
 \contentsline {section}{\numberline {7}Programacion lineal entera}{26}
-\contentsline {section}{\numberline {8}Conclusión}{29}
+\contentsline {section}{\numberline {8}Conclusi\IeC {\'o}n}{29}

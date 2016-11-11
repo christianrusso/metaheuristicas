@@ -1,2 +1,9 @@
 \newpage
 \section{Resolucion alternativa}
+La idea es usar un GRASP (Goloso Randomizado) y en general es encontrar el punto de la discretizacion donde el ogip valga mas y luego, dentro de un rango valido (un cuadrado) agarrar una lista de posibles pads, es decir, agregar a la lista todos los pads que pueden tapar a ese punto y luego agarrar un pad random para meter en la solucion y asi iterar sucesivamente. 
+
+Una vez conseguida la solucion, hacer una busqueda local para tratar de mejorar la solucion. Y la forma de hacer la busqueda local es.
+
+1- Para cada pad tratar de acercarlo a otro pads y al finalizar esto chequear si es posible meter otro nuevo pad.
+2- Sacar algun pad con algun criterio y tratar de acomodar los pad restantes con algun algoritmo de programacion lineal entera.
+3 -Otro
