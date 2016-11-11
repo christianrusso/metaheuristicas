@@ -1,16 +1,27 @@
 \select@language {spanish}
 \contentsline {section}{\numberline {1}Introducci\IeC {\'o}n Te\IeC {\'o}rica}{1}
 \contentsline {subsection}{\numberline {1.1}Colonia de Hormigas}{1}
-\contentsline {section}{\numberline {2}El problema}{4}
-\contentsline {section}{\numberline {3}Algoritmo Propuesto}{8}
-\contentsline {subsection}{\numberline {3.1}Explicacion}{8}
-\contentsline {subsubsection}{\numberline {3.1.1}Colonia de hormigas}{8}
-\contentsline {subsubsection}{\numberline {3.1.2}Colonia de hormigas Version Alternativa}{11}
-\contentsline {subsection}{\numberline {3.2}Pseudocodigo}{14}
-\contentsline {subsubsection}{\numberline {3.2.1}Algoritmo principal}{14}
-\contentsline {subsubsection}{\numberline {3.2.2}Alternativa: Muchas Feromonas}{17}
-\contentsline {section}{\numberline {4}Parametros}{18}
-\contentsline {section}{\numberline {5}Experimentaci\IeC {\'o}n}{20}
-\contentsline {section}{\numberline {6}Resolucion alternativa}{25}
-\contentsline {section}{\numberline {7}Programacion lineal entera}{26}
-\contentsline {section}{\numberline {8}Conclusi\IeC {\'o}n}{29}
+\contentsline {section}{\numberline {2}El problema}{3}
+\contentsline {section}{\numberline {3}Algoritmo Propuesto}{7}
+\contentsline {subsection}{\numberline {3.1}Explicacion}{7}
+\contentsline {subsubsection}{\numberline {3.1.1}Colonia de hormigas}{7}
+\contentsline {subsubsection}{\numberline {3.1.2}Colonia de hormigas Version Alternativa}{9}
+\contentsline {subsection}{\numberline {3.2}Pseudocodigo}{11}
+\contentsline {subsubsection}{\numberline {3.2.1}Algoritmo principal}{11}
+\contentsline {subsubsection}{\numberline {3.2.2}Alternativa: Muchas Feromonas}{13}
+\contentsline {section}{\numberline {4}Parametros}{14}
+\contentsline {section}{\numberline {5}Experimentaci\IeC {\'o}n}{15}
+\contentsline {section}{\numberline {6}Resolucion alternativa}{19}
+\contentsline {section}{\numberline {7}Programacion lineal entera}{20}
+\contentsline {section}{\numberline {8}Conclusi\IeC {\'o}n}{22}
+\contentsline {section}{\numberline {9}Anexo}{23}
+\contentsline {subsection}{\numberline {9.1}0G100x100\_muchos}{23}
+\contentsline {subsection}{\numberline {9.2}0G100x100\_pocos}{24}
+\contentsline {subsection}{\numberline {9.3}45G100x100\_pocos}{25}
+\contentsline {subsection}{\numberline {9.4}45G100x100\_muchos}{26}
+\contentsline {subsection}{\numberline {9.5}0G400x400\_pocos}{27}
+\contentsline {subsection}{\numberline {9.6}45G400x400\_pocos}{28}
+\contentsline {subsection}{\numberline {9.7}inst2}{30}
+\contentsline {subsection}{\numberline {9.8}0G1200x1200\_muchos}{30}
+\contentsline {subsection}{\numberline {9.9}45G1200x1200\_muchos}{31}
+\contentsline {subsection}{\numberline {9.10}45G110X90Y8E7AR}{32}
