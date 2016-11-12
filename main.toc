@@ -1,0 +1,23 @@
+\select@language {spanish}
+\contentsline {section}{\numberline {1}Introducci\IeC {\'o}n Te\IeC {\'o}rica}{1}
+\contentsline {subsection}{\numberline {1.1}Colonia de Hormigas}{1}
+\contentsline {section}{\numberline {2}El problema}{3}
+\contentsline {section}{\numberline {3}Algoritmo Propuesto}{6}
+\contentsline {subsection}{\numberline {3.1}Explicaci\'on}{6}
+\contentsline {subsubsection}{\numberline {3.1.1}Colonia de hormigas}{6}
+\contentsline {subsubsection}{\numberline {3.1.2}Colonia de hormigas Versi\'on Alternativa}{8}
+\contentsline {subsection}{\numberline {3.2}Pseudocodigo}{10}
+\contentsline {subsubsection}{\numberline {3.2.1}Algoritmo principal}{10}
+\contentsline {subsubsection}{\numberline {3.2.2}Alternativa: Muchas Feromonas}{12}
+\contentsline {section}{\numberline {4}Parametros}{13}
+\contentsline {section}{\numberline {5}Experimentaci\IeC {\'o}n}{14}
+\contentsline {section}{\numberline {6}Resoluci\'on alternativa}{28}
+\contentsline {section}{\numberline {7}Programaci\'on lineal entera}{29}
+\contentsline {section}{\numberline {8}Conclusi\IeC {\'o}n}{31}
+\contentsline {section}{\numberline {9}Anexo}{32}
+\contentsline {subsection}{\numberline {9.1}0G100x100\_muchos}{32}
+\contentsline {subsection}{\numberline {9.2}0G100x100\_pocos}{35}
+\contentsline {subsection}{\numberline {9.3}45G100x100\_pocos}{38}
+\contentsline {subsection}{\numberline {9.4}45G100x100\_muchos}{41}
+\contentsline {subsection}{\numberline {9.5}inst2}{44}
+\contentsline {subsection}{\numberline {9.6}45G110X90Y8E7AR}{47}

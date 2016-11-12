@@ -1,9 +1,25 @@
 \newpage
 \section{Conclusión}\label{sec:conclusion}
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Como se pudo ver en la seccion de experimentacion, los resultados de Colonia de Hormigas (en cualquiera de sus dos versiones) no siempre son mejores que los de Goloso y Goloso Maximos Locales. Y vale aclarar que nunca son mejores que los de Scip, pero recordemos que Scip acepta superposiciones, por lo que esto nos hace estar en desventaja. 
+Pero existen muchisimos casos en los que nuestro algoritmo es mejor ue Goloso y Goloso de Maximos Locales.
+
+Luego de hacer un analisis (ver seccion experimentacion) con respecto al tiempo de ejecucicon, podemos concluir que a medida que se aumentan la cantidad de soluciones por iteraciones, el tiempo aumenta, lo cual es un resultado esperado. En algunos casos aumenta mas y en otros menos, pero en general siempre aumenta.
+En cambio si aumentamos la cantidad de iteraciones no siempre aumenta el tiempo, esto es debido a que el tiempo calculo es el tiempo que se tardo en encontrar la mejor solucion por lo tanto, si la solucion se encuentra en una iteracion temprana, el tiempo va a ser menor que si se encontro en una iteracion mas lejana. Esto es independiente de si tiene mas o menos iteraciones. Notar que si tiene mas iteraciones aumenta la probabilidad de encontrar una mejor solucion a la solucion parcial encontrada hasta el momento. 
+Se puede ver que en algunas corridas, la mejor solucion se encontro siempre en la ultima iteracion, dando esto un indicio de que si se correrian mas iteraciones se podrian encontrar mejores soluciones. Lamentablemente el tiempo computacional no nos permitio probar con muchas mas iteraciones pero queda como trabajo futuro tratar de hacer este analisis.
+
+Se puede ver facilmente que la variacion de la discretizacion es clave en el tiempo, cuanto mas discretizamos mas tiempo se tarda.
+
+En comparacion con los otros algoritmos, nuestro algoritmo siempre es mas lento, pero se pueden ver muchisimos casos donde aunque no se encuentre la mejor solucion, se consiguen mejores tiempos, es decir existen soluciones que no son las mejores pero que el tiempo es mucho menor comparado con tiempos de los otros algortimos. Tambien existen muchos casos donde se puede conseguir mejores resultados pero en mas tiempo. Igualmente se puede ver que en muchos casos se pueden conseguir soluciones mejores que las soluciones de Goloso y Goloso Maximos Locales y en menos tiempo. 
+
+Con esto podemos decir que nuestro algoritmo consigue, en algunos casos, soluciones mejores (tanto en tiempo como en ogip) y en algunos casos no tan buenos resultados. 
+
+En general nuestro algoritmo es mejor en soluciones no tan discretizadas, es decir, cuanto mas discretizamos mejoran todos los algortimos, pero en los otros algoritmo la mejora es levemente mas grande, pero esto no es un problema, dado que las instancias de prueba que corrimos son instancias chicas, por lo tanto, si uno quisiera correr un caso real, donde la instancia tiene muchisimos metros de area, ninguno de los algoritmos podria llegar a discretizar muy profundo, por lo tanto nuestro algoritmo, podria llegar a conseguir mejores soluciones (en tiempo y ogip) que los otros algoritmos.
+
+El ogip aumenta al incrementar la cantidad de soluciones por iteracion y tambien al incrementar las iteraciones. Pero notar que existen casos donde aunque uno aumenta la cantidad de iteraciones, el algortimo \textbf{se plancha} y no consigue nada mejor. Esto es porque la mejor solucion la consiguio de forma temprana (no quita que exista la posibilidad de que aparezca una mejor en iteraciones mas avanzadas).
+
+Con respecto a los modos de chequear que una solucion es buena o no, en este trabajo se probaron 3 distintos, y se pudieron notar variaciones entre ellas, pero queda a trabajo futuro investigar que otras opciones de chequeo de buenas soluciones se pueden utilizar.
+
+Finalizando, podemos concluir que Colonia de Hormigas nunca le gana a Scip (con repeticiones), en muchos casos podemos obtener mejores soluciones que los demas algoritmos y en muchos casos podriamos obtener soluciones mas lentas. Por lo tanto a la hora de decidir que algoritmo utilizar deberia hacerce un analisis de lo que uno prefiere, si priorizar el resultado o priorizar el tiempo, o buscar un intermedio, etc. 
+
+En general, priorizando un \textbf{intermedio}, nuestro algoritmo tiene todas las chances de ganarle a los demas.

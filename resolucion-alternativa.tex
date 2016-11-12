@@ -1,13 +1,13 @@
 \newpage
-\section{Resolucion alternativa}
-La idea es usar un GRASP, entonces lo primero que hacemos es buscar una solucion goloza randomizada y luego aplicarmos busqueda local para actualizar la solucion. 
+\section{Resoluci\'on alternativa}
+La idea es usar un GRASP, entonces lo primero que hacemos es buscar una soluci\'on goloza randomizada y luego aplicarmos b\'usqueda local para actualizar la soluci\'on. 
 
-Para generarnos una solucion golosa optimizada debemos encontrar el punto de la discretizacion donde el ogip valga mas y luego, generar una cantidad configurable de pads que tapen el punto pero que sean de randoms entre si. Luego iterar buscando los puntos de la discretizacion que valgan mas hasta llenar la region.
+Para generarnos una soluci\'on golosa optimizada debemos encontrar el punto de la discretizaci\'on donde el ogip valga mas y luego, generar una cantidad configurable de pads que tapen el punto pero que sean de randoms entre s\'i. Luego iterar buscando los puntos de la discretizacion que valgan mas hasta llenar la region.
 
-Una vez conseguida la solucion, se debe hacer una busqueda local para tratar de mejorar la solucion. Y algunas formas posibles de hacer esta busqueda local pueden ser:
+Una vez conseguida la soluci\'on, se debe hacer una b\'usqueda local para tratar de mejorar la soluci\'on. Y algunas formas posibles de hacer esta b\'usqueda local pueden ser:
 
 \begin{enumerate}
 \item Para cada pad tratar de acercarlo a otro pads y al finalizar esto chequear si es posible meter otro nuevo pad.
-\item Sacar algun pad con algun criterio y tratar de acomodar los pad restantes con algun algoritmo de programacion lineal entera.
+\item Sacar alg\'un pad con alg\'un criterio y tratar de acomodar los pad restantes con algun algoritmo de programaci\'on lineal entera.
 \item Otro
 \end{enumerate}

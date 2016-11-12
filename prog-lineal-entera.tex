@@ -1,5 +1,5 @@
 \newpage
-\section{Programacion lineal entera}
+\section{Programaci\'on lineal entera}
 
 En este trabajo se opt\'o por reducir el problema a un problema de conjunto independiente de peso m\'aximo en un grafo dado por la discretizaci\'on del \'area del yacimiento, que proporcion\'o buenos resultados en la pr\'actica. Dado un grafo $G=(V,E)$, un \textbf{conjunto independiente} es un conjunto $I\subseteq V$ de v\'ertices tal que $ij\not\in E$ para todo $i,j\in I$. Si adem\'as tenemos una funci\'on de peso W : V $\rightarrow \mathbb{R}$, el \textbf{peso} del conjunto independiente $I$ es $w(I) := \sum_{i\in I} w_i$. La motivaci\'on para este enfoque viene dada por el hecho de que el conjunto de pads de la soluci\'on conforma un conjunto de elementos no conflictivos entre s\'\i, situaci\'on que es modelada adecuadamente por medio de conjuntos independientes en un grafo. Sin embargo, esta reducci\'on trae aparejado un \emph{costo de discretizaci\'on}, que ser\'a mayor cuanto mayor sea el paso de discretizaci\'on seleccionado.
 
@@ -20,6 +20,8 @@ Describimos a continuaci\'on cada punto del algoritmo. Para esto, sean $\Delta_x
 
 
 \noindent\textbf{Grafo de conflictos.} Se genera un grafo $G=(T,E)$ cuyos v\'ertices est\'an dados por todos los pads generados en el punto anterior, y cuyas aristas unen pares de pads con intersecci\'on no vac\'\i a. El conjunto $E$ est\'a compuesto por los pares $(P_1,P_2)$ tales que existe alg\'un punto $(x,y)\in D$ con $(x,y)\in P_1$ y $(x,y)\in P_2$. Esta definici\'on de $E$ permite que existan pares de pads con peque\~nas superposiciones pero sin una arista que los una en $G$. Esto sucede cuando la intersecci\'on no contiene ning\'un punto de la discretizaci\'on $D$, lo cual puede ocurrir s\'olo cuando la superposici\'on es peque\~na. De este modo, se maneja adecuadamente la restricci\'on el\'astica de no superposici\'on de pads.
+
+\newpage
 
 \noindent\textbf{Obtenci\'on de una soluci\'on.} Se plantea y se resuelve la siguiente formulaci\'on de conjunto independiente con peso m\'aximo sobre $G$, usando las restricciones clique sobre todos los puntos de la discretizaci\'on. En este modelo, se tiene una variable binaria $x_P$ por cada pad, de modo tal que $x_P=1$ si y s\'olo si el pad $P$ se incluye en la soluci\'on.
 
